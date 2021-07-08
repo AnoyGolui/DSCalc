@@ -35,7 +35,22 @@ void quickSort(int number[25],int first,int last)
 
 //insert element in an array
 void arinsert(int arr[],int n){
-
+    int option;
+    do{
+        cout<<"\n======================================\n 1.Insert elements into a empty array\n 2.Insert elements into given location\n 3.Insert element in an already sorted array\n 4.Go back\n 5.Exit";
+        cout<<"\nEnter your option: ";
+        cin>>option;
+        switch (option)
+        {
+        case 1:
+            
+            break;
+        
+        default:
+            break;
+        }
+    }while(option!=5);
+        
 }
 
 
@@ -48,16 +63,18 @@ void ardelete(int arr[],int n){
 //operation in array
 void arcon(int arr[],int n){
     int option;
-    printf("\n======================================\n 1.Insertion\n 2.Deletion\n 3.Check position\n======================================\n");
-    printf("Enter your option: ");
-    scanf("%d",&option);
-    switch(option){
-    case 1: arinsert(arr,n);
-            break;
-    case 2: ardelete(arr,n);
-            break;
+    do{
+        cout<<"\n======================================\n 1.Insertion\n 2.Deletion\n 3.Check position\n======================================\n";
+        cout<<"Enter your option: ";
+        cin>>option;
+        switch(option){
+        case 1: arinsert(arr,n);
+                break;
+        case 2: ardelete(arr,n);
+                break;
 
-    }
+        }
+    }while(option!=4);
 }
 
 
