@@ -4,8 +4,8 @@ using namespace std;
 
 //quicksort
 void quickSort(int number[25],int first,int last)
-{int i, j, pivot, temp;
-
+{
+   int i, j, pivot, temp;
    if(first<last){
       pivot=first;
       i=first;
@@ -36,17 +36,14 @@ void quickSort(int number[25],int first,int last)
 //insert element in an array
 void arinsert(int arr[],int n){
     int option;
-    do{
+    do
+    {
         cout<<"\n======================================\n 1.Insert elements into a empty array\n 2.Insert elements into given location\n 3.Insert element in an already sorted array\n 4.Go back\n 5.Exit";
         cout<<"\nEnter your option: ";
         cin>>option;
         switch (option)
         {
         case 1:
-            
-            break;
-        
-        default:
             break;
         }
     }while(option!=5);
