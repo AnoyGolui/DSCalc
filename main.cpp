@@ -34,17 +34,36 @@ void quickSort(int number[25],int first,int last)
 }
 
 //insert element in an array
+void arIn(int option){
+    int i,n,num,pos,arr[100];
+    if(option==1){
+        cout<<"Enter the number of elements in the array: ";
+        cin>>n;
+    }
+    
+
+}
 void arinsert(int arr[],int n){
     int option;
-    do
-    {
+    do{
         cout<<"\n======================================\n 1.Insert elements into a empty array\n 2.Insert elements into given location\n 3.Insert element in an already sorted array\n 4.Go back\n 5.Exit";
         cout<<"\nEnter your option: ";
         cin>>option;
         switch (option)
         {
-        case 1:
+        case 1:arIn(option);
+            
             break;
+        case 2:arIn(option);
+            
+            break;
+        case 3:arIn(option);
+            
+            break;
+        case 4:arIn(option);
+            
+            break;
+        
         }
     }while(option!=5);
         
