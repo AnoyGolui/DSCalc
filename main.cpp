@@ -4,8 +4,8 @@ using namespace std;
 
 //quicksort
 void quickSort(int number[25],int first,int last)
-{
-   int i, j, pivot, temp;
+{int i, j, pivot, temp;
+
    if(first<last){
       pivot=first;
       i=first;
@@ -149,6 +149,10 @@ void arr(){
     arcon(ar,n);
 
 }
+
+
+
+
 
 //make a singly linked List
 class NodeL{ 
