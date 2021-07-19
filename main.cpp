@@ -34,11 +34,22 @@ void quickSort(int number[25],int first,int last)
 }
 
 //insert element in an array
-void arIn(int option){
-    int i,n,num,pos,arr[100];
+void arIn(int arr[],int n,int option){
+    int i,num,pos;
     if(option==1){
-        cout<<"Enter the number of elements in the array: ";
-        cin>>n;
+        cout<<"Enter the number to be inserted: ";
+        cin>>num;
+        cout<<"Enter the position at which the has to be inserted: ";
+        cin>>pos;
+        for(i=n-1;i>=pos;i--)
+            arr[i+1]=arr[i];
+        arr[pos]=num;
+        n=n+1;
+        for(i=0;i<n;i++)
+            cout<<"|"<<arr[i]<<"| ";
+    }
+    else if(option==2){
+
     }
     
 
@@ -46,41 +57,61 @@ void arIn(int option){
 void arinsert(int arr[],int n){
     int option;
     do{
-        cout<<"\n======================================\n 1.Insert elements into a empty array\n 2.Insert elements into given location\n 3.Insert element in an already sorted array\n 4.Go back\n 5.Exit";
+        cout<<"\n======================================\n 1.Insert elements into given location\n 2.Insert element in an already sorted array\n 3.Go back";
         cout<<"\nEnter your option: ";
         cin>>option;
         switch (option)
         {
-        case 1:arIn(option);
+        case 1:arIn(arr,n,option);
             
             break;
-        case 2:arIn(option);
+        case 2:arIn(arr,n,option);
             
             break;
-        case 3:arIn(option);
-            
-            break;
-        case 4:arIn(option);
-            
-            break;
-        
         }
-    }while(option!=5);
+    }while(option!=3);
         
 }
 
 
 //delete element from array
 void ardelete(int arr[],int n){
-
 };
 
+
+
+void checkPos(int arr[],int n){
+    
+    int elem;
+
+    cout<<"Enter the element to be search: ";
+    cin>>elem;
+    
+    int i = 0;
+    while (i < n)
+    {
+        if (arr[i] == elem) {
+            break;
+        }
+        i++;
+    }
+ 
+    if (i < n)
+    {
+        cout << "\nElement " << elem << " is present at position " << i
+             << " in the given array";
+    }
+    else {
+        cout << "\nElement is not present in the given array";
+    }
+ 
+}
 
 //operation in array
 void arcon(int arr[],int n){
     int option;
     do{
-        cout<<"\n======================================\n 1.Insertion\n 2.Deletion\n 3.Check position\n======================================\n";
+        cout<<"\n======================================\n 1.Insertion\n 2.Deletion\n 3.Check position\n 4.Go Back\n======================================\n";
         cout<<"Enter your option: ";
         cin>>option;
         switch(option){
@@ -88,7 +119,7 @@ void arcon(int arr[],int n){
                 break;
         case 2: ardelete(arr,n);
                 break;
-
+        case 3:checkPos(arr,n);
         }
     }while(option!=4);
 }
@@ -118,10 +149,6 @@ void arr(){
     arcon(ar,n);
 
 }
-
-
-
-
 
 //make a singly linked List
 class NodeL{ 
