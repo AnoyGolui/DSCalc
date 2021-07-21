@@ -424,19 +424,74 @@ void printPreorder(struct Tr* node){
     //now recur on right subtree
     printPreorder(node->right);
 }
-
+void inputTRele(struct Tr* root){
+      int o;
+      char op,y,n;
+      cout<<"Enter which side you want to input data: ";
+      cin>>op;
+      if(op=='l'){
+        cout<<"Enter the data: ";
+        cin>>o;
+        root->left=new Tr(o);
+        cout<<"Do you want input more data(y/n): ";
+        cin>>op;
+        if(op=='y')
+            inputTRele(root->left);
+        else {
+            return;
+        }
+    }
+    else if(op=='r'){
+        cout<<"Enter the data: ";
+        cin>>o;
+        root->right=new Tr(o);
+        cout<<"Do you want input more data(y/n): ";
+        cin>>op;
+        if(op=='y')
+            inputTRele(root->right);
+        else {
+            return;
+        }
+    }
+        
+}
+//main tree
+void Ttraversal(struct Tr* root){
+    int n;
+    char op;
+    cout<<"Enter the root node: ";
+    cin>>n;
+    root=new Tr(n);
+    cout<<"Do you want to enter anymore data(y/n): ";
+    cin>>op;
+    if(op=='y'){
+      inputTRele(root);  
+    }
+    else if(op=='n')
+        return;
+}
+void mTree(){
+    struct Tr* root;
+    char op;
+    cout<<"Do you want to Traverse a array: ";
+    cin>>op;
+    if(op=='y')
+        Ttraversal(root);
+    else if(op=='n')
+        return;
+}
 //main function
 int main()
 {
     int option;
     do{
-    
     cout<<"================WELCOME TO THE CALQ================\n1.Array\n2.String\n3.Linked list\n4.Stack\n5.Queue\n6.Tree\n7.Graph\n8.Calculator\n9.Number Conversion\n===================================================\nEnter your option: ";
     cin>>option;
     switch (option)
     {
     case 1: arr(); break;
     case 3: list0(); break;
+    case 6: mTree(); break;
     }
     }while(option!=10);
     return 0;
