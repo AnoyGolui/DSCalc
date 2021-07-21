@@ -2,6 +2,8 @@
 using namespace std;
 
 
+
+
 //quicksort
 void quickSort(int number[25],int first,int last)
 {int i, j, pivot, temp;
@@ -33,6 +35,8 @@ void quickSort(int number[25],int first,int last)
 
 }
 
+
+
 //insert element in an array
 void arIn(int arr[],int n,int option){
     int i,num,pos;
@@ -54,6 +58,9 @@ void arIn(int arr[],int n,int option){
     
 
 }
+
+
+
 void arinsert(int arr[],int n){
     int option;
     do{
@@ -106,6 +113,9 @@ void checkPos(int arr[],int n){
     }
  
 }
+
+
+
 
 //operation in array
 void arcon(int arr[],int n){
@@ -166,6 +176,8 @@ void pushL(NodeL** headL ,int new_data){
     new_node->next = (*headL);
     (*headL) = new_node;
 }
+
+
 void insertAfterL(NodeL* prev, int new_data){
     if(prev == NULL){
         cout<<"The previous number cannot be NULL";
@@ -176,6 +188,8 @@ void insertAfterL(NodeL* prev, int new_data){
     new_node->next = prev->next;
     prev->next = new_node;
 }
+
+
 
 void appendL(NodeL** headL,int new_data){
     NodeL* new_node = new NodeL();
@@ -195,6 +209,8 @@ void appendL(NodeL** headL,int new_data){
     last->next = new_node;
     return;
 }
+
+
 void deleteNodeL(NodeL** head,int ele){
     NodeL* temp = *head;
     NodeL* prev = NULL;
@@ -215,12 +231,17 @@ void deleteNodeL(NodeL** head,int ele){
         delete temp;
     }
 }
+
+
 void printList1(NodeL* node){
     while(node!=NULL){
         cout<<" "<<node->data;
         node = node->next;
     }
 }
+
+
+
 void list1(){
     NodeL* head = NULL;
     int n,a;
@@ -272,6 +293,8 @@ struct NodeC *addToEmpty(struct NodeC* last,int data){
     return last;
 }
 
+
+
 struct NodeC *addBegin(struct NodeC *last,int data){
     if(last == NULL)
         return addToEmpty(last,data);
@@ -283,6 +306,8 @@ struct NodeC *addBegin(struct NodeC *last,int data){
 
     return last;
 }
+
+
 
 struct NodeC *addEnd(struct NodeC *last,int data){
     if(last==NULL)
@@ -296,6 +321,8 @@ struct NodeC *addEnd(struct NodeC *last,int data){
 
     return last;
 }
+
+
 
 struct NodeC *addAfter(struct NodeC *last,int data,int item){
     if(last==NULL)
@@ -319,6 +346,8 @@ struct NodeC *addAfter(struct NodeC *last,int data,int item){
 
     cout<<item<<" not present in the List."<<endl;
 }
+
+
 void printList2(struct NodeC *last){
     struct NodeC *p;
     if(last==NULL){
@@ -331,6 +360,8 @@ void printList2(struct NodeC *last){
         p = p ->next;
     }while(p!=last->next);
 }
+
+
 
 void list2(){
     NodeC * last = NULL;
@@ -360,6 +391,8 @@ void list2(){
     
 }
 
+
+
 //main list
 void list0(){
     int option;
@@ -373,6 +406,8 @@ void list0(){
         }
     }while(option!=3);
 }
+
+
 
 //main function
 int main()
