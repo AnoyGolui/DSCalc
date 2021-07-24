@@ -387,6 +387,55 @@ class STACK{
         void displaySt();
 };
 
+struct stackLi{
+    int data;
+    stackLi *link;
+};
+
+stackLi *top = NULL;
+
+bool isempty()
+{
+ if(top == NULL)
+ return true; else
+ return false;
+}
+
+void pushLSt(int val){
+    stackLi *ptr = new stackLi();
+    ptr->data = val;
+    ptr->link = top;
+    top = ptr;
+}
+
+void popLSt(){
+    if(isempty())
+        cout<<"Stack is Empty";
+    else
+        {
+            stackLi *ptr = top;
+            top = top->link;
+            delete(ptr);
+        }
+}
+void dispTop(){
+    if(isempty())
+        cout<<"Stack is Empty";
+    else
+        cout<<"The top element is "<<top->data;
+}
+
+void displayLSt(){
+    if(isempty())
+        cout<<"Stack is empty";
+    else{
+        stackLi *temp =top;
+        while(temp!=NULL){
+            cout<<"|"<<temp->data<<"|"<<endl;
+            temp = temp->link;
+        }
+    }
+}
 STACK::STACK(){
     top=-1;
 }
@@ -426,8 +475,34 @@ void STACK::displaySt(){
     for(int i=(top);i>=0;i--)
         cout<<"|"<<num[i]<<"|"<<endl;
 }
-
-void StackMain(){
+void StackMain2(){
+    int choice,flag=1,val;
+    while(flag==1){
+        cout<<"1.Push an item into the stack\n2.Pop an item from the stack\n3.Display the stack\n4.Display the top\n5.Exit\n";
+        cout<<"Enter your choice: ";
+        cin>>choice;
+        switch (choice)                 
+        {
+        case 1:
+            cout<<"\nEnter the value to be inserted: ";
+            cin>>val;
+            break;
+        case 2:popLSt();
+                break;
+        case 3:displayLSt();
+                break;
+        case 4:dispTop();
+                break;
+        
+        case 5: flag = 0;
+                break;
+        default:
+            cout<<"Invalid";
+            break;
+        }
+    }
+}
+void StackMain1(){
     int choice,n,temp,val;
     STACK stk;
     do{
@@ -578,7 +653,7 @@ int main()
     {
     case 1: arr(); break;
     case 3: list0(); break;
-    case 4: StackMain();break;
+    case 4: StackMain1();break;
     case 6: mTree(); break;
     }
     }while(option!=10);
