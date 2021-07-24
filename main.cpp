@@ -414,7 +414,49 @@ int STACK::pushS(int n){
 }
 
 int STACK::popS(){
-    
+    int temp;
+    if(isEmptyS())
+        return 0;
+    temp=num[top];
+    --top;
+    return temp;
+}
+
+void STACK::displaySt(){
+    for(int i=(top);i>=0;i--)
+        cout<<"|"<<num[i]<<"|"<<endl;
+}
+
+void StackMain(){
+    int choice,n,temp,val;
+    STACK stk;
+    do{
+        cout<<endl;
+        cout<<"1.Push an item into the stack\n2.Pop an item from the stack\n3.Display the stack\n4.Exit\n";
+        cout<<"Enter your choice: ";
+        cin>>choice;
+        switch (choice)
+        {
+        case 1:
+            cout<<"\nEnter item to insert: ";
+            cin>>n;
+            temp=stk.pushS(n);
+            if(temp==0)
+                cout<<"Stack is Full"<<endl;
+            else    
+                cout<<"Item inserted";
+            break;
+        case 2:val=stk.popS();
+               if(val!=-1)
+                    cout<<"\nThe value removed from the stack is "<<val;
+                break;
+        case 3:stk.displaySt();
+                break;
+        default:
+            cout<<"\nAn Invalid choice.";
+            break;
+        }
+    }while(choice!=4);
 }
 
 
@@ -536,6 +578,7 @@ int main()
     {
     case 1: arr(); break;
     case 3: list0(); break;
+    case 4: StackMain();break;
     case 6: mTree(); break;
     }
     }while(option!=10);
