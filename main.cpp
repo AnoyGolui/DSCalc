@@ -475,7 +475,7 @@ void STACK::displaySt(){
     for(int i=(top);i>=0;i--)
         cout<<"|"<<num[i]<<"|"<<endl;
 }
-void StackMain2(){
+void StackLinked(){
     int choice,flag=1,val;
     while(flag==1){
         cout<<"1.Push an item into the stack\n2.Pop an item from the stack\n3.Display the stack\n4.Display the top\n5.Exit\n";
@@ -502,7 +502,7 @@ void StackMain2(){
         }
     }
 }
-void StackMain1(){
+void Stack(){
     int choice,n,temp,val;
     STACK stk;
     do{
@@ -534,7 +534,25 @@ void StackMain1(){
     }while(choice!=4);
 }
 
-
+void stackMain(){
+    int choice;
+    do{
+    cout<<"\nWhat type of Stack do you want to make?\n1.Normal stack\n2.Stack using Linked list\n3.Exit";
+    cout<<"\nEnter your option: ";
+    cin>>choice;
+    switch (choice)
+    {
+    case 1:
+        stack();
+        break;
+    case 2:StackLinked();
+        break;
+    default:
+        cout<<"Invalid";
+        break;
+    }
+    }while(choice!=3);
+}
 //Tree Part
 struct Tr{
     int data;
@@ -653,7 +671,7 @@ int main()
     {
     case 1: arr(); break;
     case 3: list0(); break;
-    case 4: StackMain1();break;
+    case 4: stackMain();break;
     case 6: mTree(); break;
     }
     }while(option!=10);
