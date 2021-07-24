@@ -502,7 +502,7 @@ void StackLinked(){
         }
     }
 }
-void Stack(){
+void StackN(){
     int choice,n,temp,val;
     STACK stk;
     do{
@@ -534,24 +534,84 @@ void Stack(){
     }while(choice!=4);
 }
 
+
+
+//Fuction to return precedence of operators
+int prec(char c){
+    if(c=='^')
+        return 3;
+    else if(c=='/'|| c=='*')
+        return 2;
+    else if(c=='+'|| c=='-')
+        return 1;
+    else
+        return -1;
+}
+
+void inToPo(string s){
+    stack<char> st;
+    string result;
+
+    for(int i=0;i<s.length();i++){
+        char c = s[i];
+
+        if((c>='a'&& c<='z')|| (c>='A' && c<='Z') || (c>='0' && c<='9'))
+            result +=c;
+        else if(c=='(')
+            st.push('(');
+        else if(c==')'){
+            while(st.top()!='('){
+                result+= st.top();
+                st.pop();
+            }
+            st.pop();
+        }
+
+        else{
+            while(!st.empty() && prec(s[i]) <=prec(st.top())){
+                result+=st.top();
+                st.pop();
+            }
+            st.push(c);
+        }
+    }
+    while(!st.empty()){
+        result += st.top();
+        st.pop();
+    }
+    cout<<result<<endl;
+}
+void infixTopostfix(){
+    string exp ;
+    cout<<"Enter infix expression: ";
+    cin>>exp;
+    inToPo(exp);
+}
+
+
+//main stack
+
+
 void stackMain(){
     int choice;
     do{
-    cout<<"\nWhat type of Stack do you want to make?\n1.Normal stack\n2.Stack using Linked list\n3.Exit";
+    cout<<"\nWhat type of Stack do you want to make?\n1.Normal stack\n2.Stack using Linked list\n3.Convert infix to postfix\n4.Exit";
     cout<<"\nEnter your option: ";
     cin>>choice;
     switch (choice)
     {
     case 1:
-        stack();
+        StackN();
         break;
     case 2:StackLinked();
+        break;
+    case 3:infixTopostfix();
         break;
     default:
         cout<<"Invalid";
         break;
     }
-    }while(choice!=3);
+    }while(choice!=4);
 }
 //Tree Part
 struct Tr{
