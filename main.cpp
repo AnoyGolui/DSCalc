@@ -373,6 +373,51 @@ void list0(){
         }
     }while(option!=3);
 }
+
+//stack
+class STACK{
+    int num[100];
+    int top;
+    public:
+        STACK();
+        int pushS(int);
+        int popS();
+        int isEmptyS();
+        int isFullS();
+        void displaySt();
+};
+
+STACK::STACK(){
+    top=-1;
+}
+int STACK::isEmptyS(){
+    if(top==-1)
+        return 1;
+    else    
+        return 0;
+}
+
+int STACK::isFullS(){
+    if(top==(100-1))
+        return 1;
+    else
+        return 0;
+
+}
+
+int STACK::pushS(int n){
+    if(isFullS())
+        return 0;
+    ++top;
+    num[top]=n;
+    return n;
+}
+
+int STACK::popS(){
+    
+}
+
+
 //Tree Part
 struct Tr{
     int data;
