@@ -730,6 +730,7 @@ class  Graph{
         Graph(int vertics);
         void addEdge(int src,int dest);
         void BFS(int startVer);
+        void DFS(int vertex);
 };
 
 //create a graph with given vertices.
@@ -767,7 +768,9 @@ void Graph::BFS(int startVer){
         }
     }
 }
-void GraphBFS(){
+
+
+void GraphS(int op){
     int n,src,dest,m;
     char option;
     cout<<"\nEnter the number of vertices: ";
@@ -791,18 +794,21 @@ void GraphBFS(){
     }while(option!='n');
     cout<<"Enter where to start: ";
     cin>>m;
-    g.BFS(m);
+        g.BFS(m);
+        
 }
 void graph(){
     int option;
     do{
-        cout<<"\n1.Breadth first search\n4.Exit";
+        cout<<"\n1.Breadth first search\n2.Depth first search\n4.Exit";
         cout<<"\nEnter your option: ";
         cin>>option;
         switch (option)
         {
         case 1:
-            GraphBFS();
+            GraphS(1);
+            break;
+        case 2:GraphS(2);
             break;
         
         default:
