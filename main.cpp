@@ -720,6 +720,98 @@ void mTree(){
     else if(op=='n')
         return;
 }
+
+//Graph
+class  Graph{
+    int numver;
+    list<int>* adjList;
+    bool* visited;
+    public:
+        Graph(int vertics);
+        void addEdge(int src,int dest);
+        void BFS(int startVer);
+};
+
+//create a graph with given vertices.
+Graph::Graph(int vertices){
+    numver = vertices;
+    adjList = new list<int>[vertices];
+}
+
+//add edges to the graph
+void Graph::addEdge(int src,int dest){
+    adjList[src].push_back(dest);
+    adjList[dest].push_back(src);
+}
+//BFS
+void Graph::BFS(int startVer){
+    visited = new bool[numver];
+    for(int i=0;i<numver;i++)
+        visited[i]=false;
+    list<int> queue;
+    visited[startVer]=true;
+    queue.push_back(startVer);
+
+    list<int>::iterator i;
+    while(!queue.empty()){
+        int curr = queue.front();
+        cout<<curr<<" ";
+        queue.pop_front();
+
+        for(i=adjList[curr].begin(); i!=adjList[curr].end();i++){
+            int adjVer = *i;
+            if(!visited[adjVer]){
+                visited[adjVer]=true;
+                queue.push_back(adjVer);
+            }
+        }
+    }
+}
+void GraphBFS(){
+    int n,src,dest,m;
+    char option;
+    cout<<"\nEnter the number of vertices: ";
+    cin>>n;
+    Graph g(n);
+    cout<<"Add edges of the vertices: ";
+    cin>>src>>dest;
+    g.addEdge(src,dest);
+    do{
+        cout<<"\nDo you want add more(y/n): ";
+        cin>>option;
+        switch (option)
+        {
+        case 'y':
+            cout<<"Add edges of the vertices: ";
+            cin>>src>>dest;
+            g.addEdge(src,dest);
+            break;
+        
+        }
+    }while(option!='n');
+    cout<<"Enter where to start: ";
+    cin>>m;
+    g.BFS(m);
+}
+void graph(){
+    int option;
+    do{
+        cout<<"\n1.Breadth first search\n4.Exit";
+        cout<<"\nEnter your option: ";
+        cin>>option;
+        switch (option)
+        {
+        case 1:
+            GraphBFS();
+            break;
+        
+        default:
+        cout<<"Invalid";
+            break;
+        }
+    }while(option!=4);
+}
+
 //main function
 int main()
 {
@@ -733,6 +825,7 @@ int main()
     case 3: list0(); break;
     case 4: stackMain();break;
     case 6: mTree(); break;
+    case 7: graph(); break;
     }
     }while(option!=10);
     return 0;
