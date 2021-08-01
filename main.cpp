@@ -34,7 +34,8 @@ void quickSort(int number[25],int first,int last)
 }
 
 //insert element in an array
-void arIn(int arr[],int n,int option){
+void arIn(int arr[],int n,int option)
+{
     int i,num,pos;
     if(option==1){
         cout<<"Enter the number to be inserted: ";
@@ -54,7 +55,8 @@ void arIn(int arr[],int n,int option){
     
 
 }
-void arinsert(int arr[],int n){
+void arinsert(int arr[],int n)
+{
     int option;
     do{
         cout<<"\n======================================\n 1.Insert elements into given location\n 2.Insert element in an already sorted array\n 3.Go back";
@@ -75,12 +77,14 @@ void arinsert(int arr[],int n){
 
 
 //delete element from array
-void ardelete(int arr[],int n){
+void ardelete(int arr[],int n)
+{
 };
 
 
 
-void checkPos(int arr[],int n){
+void checkPos(int arr[],int n)
+{
     
     int elem;
 
@@ -108,7 +112,8 @@ void checkPos(int arr[],int n){
 }
 
 //operation in array
-void arcon(int arr[],int n){
+void arcon(int arr[],int n)
+{
     int option;
     do{
         cout<<"\n======================================\n 1.Insertion\n 2.Deletion\n 3.Check position\n 4.Go Back\n======================================\n";
@@ -127,7 +132,8 @@ void arcon(int arr[],int n){
 
 
 //making a array
-void arr(){
+void arr()
+{
     int ar[100],n,i;
     cout<<"Enter the size of the array: ";
     cin>>n;
@@ -155,18 +161,21 @@ void arr(){
 
 
 //make a singly linked List
-class NodeL{ 
+class NodeL
+{ 
     public:
     int data;
     NodeL *next;
 };
-void pushL(NodeL** headL ,int new_data){
+void pushL(NodeL** headL ,int new_data)
+{
     NodeL* new_node = new NodeL();
     new_node->data = new_data;
     new_node->next = (*headL);
     (*headL) = new_node;
 }
-void insertAfterL(NodeL* prev, int new_data){
+void insertAfterL(NodeL* prev, int new_data)
+{
     if(prev == NULL){
         cout<<"The previous number cannot be NULL";
         return;
@@ -178,7 +187,8 @@ void insertAfterL(NodeL* prev, int new_data){
    
 }
 
-void appendL(NodeL** headL,int new_data){
+void appendL(NodeL** headL,int new_data)
+{
     NodeL* new_node = new NodeL();
     NodeL* last = *headL;
 
