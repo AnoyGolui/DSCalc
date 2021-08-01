@@ -175,6 +175,7 @@ void insertAfterL(NodeL* prev, int new_data){
     new_node->data = new_data;
     new_node->next = prev->next;
     prev->next = new_node;
+   
 }
 
 void appendL(NodeL** headL,int new_data){
@@ -204,7 +205,8 @@ void deleteNodeL(NodeL** head,int ele){
         delete temp;
         return;
     }
-    else{
+    else
+    {
         while(temp!=NULL && temp->data!=ele){
             prev =temp;
             temp = temp->next;
@@ -215,8 +217,10 @@ void deleteNodeL(NodeL** head,int ele){
         delete temp;
     }
 }
-void printList1(NodeL* node){
-    while(node!=NULL){
+void printList1(NodeL* node)
+{
+    while(node!=NULL)
+    {
         cout<<" "<<node->data;
         node = node->next;
     }
@@ -225,8 +229,7 @@ void list1(){
     NodeL* head = NULL;
     int n,a;
     
-    do
-    {
+    do{
         cout<<"\n1. Push element\n2. Append element\n3. Insert after element\n4. Delete an element\n5. Print the LinkedList\n6. Exit\n";
         cout<<"Enter your opration: ";
         cin>>n;
@@ -254,12 +257,14 @@ void list1(){
 
 
 //make a circular linkedList
-struct NodeC{
+struct NodeC
+{
     int data;
     struct NodeC* next;
 };
 
-struct NodeC *addToEmpty(struct NodeC* last,int data){
+struct NodeC *addToEmpty(struct NodeC* last,int data)
+{
     if(last!= NULL)
         return last;
     struct NodeC* temp = (struct NodeC*)malloc(sizeof(struct NodeC));
@@ -272,7 +277,8 @@ struct NodeC *addToEmpty(struct NodeC* last,int data){
     return last;
 }
 
-struct NodeC *addBegin(struct NodeC *last,int data){
+struct NodeC *addBegin(struct NodeC *last,int data)
+{
     if(last == NULL)
         return addToEmpty(last,data);
     struct NodeC *temp = (struct NodeC*)malloc(sizeof(struct NodeC));
