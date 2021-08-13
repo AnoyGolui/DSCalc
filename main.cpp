@@ -24,9 +24,13 @@ void quickSort(int number[25],int first,int last)
       }
 
       temp=number[pivot];
+      
       number[pivot]=number[j];
+      
       number[j]=temp;
+      
       quickSort(number,first,j-1);
+      
       quickSort(number,j+1,last);
 
    }
